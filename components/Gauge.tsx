@@ -13,8 +13,10 @@ const Gauge: React.FC<GaugeProps> = ({ value, verdict }) => {
 
   const getColor = () => {
     switch (verdict) {
-      case Verdict.LIKELY_AI:
+      case Verdict.AI_GENERATED:
         return 'stroke-red-400';
+      case Verdict.AI_ASSISTED:
+        return 'stroke-orange-400';
       case Verdict.LIKELY_HUMAN:
         return 'stroke-green-400';
       case Verdict.UNCERTAIN:
@@ -25,8 +27,10 @@ const Gauge: React.FC<GaugeProps> = ({ value, verdict }) => {
   
   const getTextColor = () => {
     switch (verdict) {
-      case Verdict.LIKELY_AI:
+      case Verdict.AI_GENERATED:
         return 'fill-red-300';
+      case Verdict.AI_ASSISTED:
+        return 'fill-orange-300';
       case Verdict.LIKELY_HUMAN:
         return 'fill-green-300';
       case Verdict.UNCERTAIN:

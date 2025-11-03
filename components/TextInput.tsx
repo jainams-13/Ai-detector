@@ -6,6 +6,7 @@ interface TextInputProps {
   buttonLabel?: string;
   promptPlaceholder?: string;
   showLanguageSelect?: boolean;
+  isButtonDisabled?: boolean;
 }
 
 const languages = [
@@ -26,6 +27,7 @@ const TextInput: React.FC<TextInputProps> = ({
   buttonLabel = 'Analyze Text', 
   promptPlaceholder = "Paste your text here...",
   showLanguageSelect = true,
+  isButtonDisabled = false,
 }) => {
   const [text, setText] = useState('');
   const [language, setLanguage] = useState('auto');
@@ -76,7 +78,7 @@ const TextInput: React.FC<TextInputProps> = ({
       <div className="mt-4 flex justify-end">
         <button
           onClick={handleAnalyzeClick}
-          disabled={isLoading || !text.trim()}
+          disabled={isLoading || !text.trim() || isButtonDisabled}
           className="px-6 py-3 bg-brand-primary text-white font-bold rounded-md hover:bg-brand-secondary disabled:bg-gray-500 disabled:cursor-not-allowed transition-all duration-300 flex items-center"
         >
           {isLoading ? (

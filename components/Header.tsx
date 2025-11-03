@@ -6,7 +6,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <h1 className="text-xl md:text-2xl font-bold text-gray-200">
-            AI Media Analysis Toolkit
+            AI Media Toolkit
           </h1>
         </div>
       </div>

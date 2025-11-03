@@ -6,8 +6,11 @@ import Spinner from './components/Spinner';
 
 const TextDetector = lazy(() => import('./components/TextDetector'));
 const ImageDetector = lazy(() => import('./components/ImageDetector'));
-const VideoDetector = lazy(() => import('./components/VideoDetector'));
+const DeepfakeDetector = lazy(() => import('./components/DeepfakeDetector'));
 const VoiceDetector = lazy(() => import('./components/VoiceDetector'));
+const CodeDetector = lazy(() => import('./components/CodeDetector'));
+const BrowserExtension = lazy(() => import('./components/BrowserExtension'));
+const VideoCreator = lazy(() => import('./components/VideoCreator'));
 
 const App: React.FC = () => {
   const [mode, setMode] = useState<DetectorMode>('text');
@@ -17,9 +20,15 @@ const App: React.FC = () => {
       case 'image':
         return <ImageDetector />;
       case 'video':
-        return <VideoDetector />;
+        return <DeepfakeDetector />;
       case 'voice':
         return <VoiceDetector />;
+      case 'code':
+        return <CodeDetector />;
+      case 'extension':
+        return <BrowserExtension />;
+      case 'creator':
+        return <VideoCreator />;
       case 'text':
       default:
         return <TextDetector />;
@@ -30,7 +39,7 @@ const App: React.FC = () => {
     <div className="flex-1 flex items-center justify-center">
        <div className="flex flex-col items-center justify-center">
           <Spinner />
-          <p className="mt-4 text-dark-text-secondary">Loading detector...</p>
+          <p className="mt-4 text-dark-text-secondary">Loading module...</p>
         </div>
     </div>
   );
